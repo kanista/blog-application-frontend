@@ -110,3 +110,19 @@ input:focus:invalid {
   box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
 }
 
+body, html {
+  height: 100vh;
+  margin: 0;
+  background-color: #EFEFEF;
+}
+
+@media screen and (max-width: 416px) {
+  .container {
+    height: 100vh;
+    .column {
+      height: 100vh;
+    }
+  }
+
+
+}

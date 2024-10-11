@@ -1,26 +1,20 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './LoginSignup.scss';
 
-const LoginSignup = () => {
-    const [isLogin, setIsLogin] = useState(true);
-
-    const toggleForm = () => {
-        setIsLogin(!isLogin); // Toggle between login and signup
-    };
-
+const LoginSignup = ({ isLogin }) => {
     return (
         <div className="container">
             <div className={`column left ${isLogin ? 'login' : 'signup'}`}>
-                {isLogin ? <h1>Welcome Again!</h1> : <SignupForm toggleForm={toggleForm} />}
+                {isLogin ? <h1>Welcome Again!</h1> : <SignupForm />}
             </div>
             <div className={`column right ${isLogin ? 'login' : 'signup'}`}>
-                {isLogin ?  <LoginForm toggleForm={toggleForm} /> : <h1>Join With Us</h1>}
+                {isLogin ? <LoginForm /> : <h1>Join With Us</h1>}
             </div>
         </div>
     );
 };
 
-const LoginForm = ({ toggleForm }) => (
+const LoginForm = () => (
     <form>
         <h2>Login</h2>
         <label>Email</label>
@@ -41,12 +35,12 @@ const LoginForm = ({ toggleForm }) => (
         />
         <button type="submit">Login</button>
         <p className="signup-text">
-            Don't have an account? <span onClick={toggleForm}>Sign Up</span>
+            Don't have an account? <span onClick={() => window.location.href = "/signup"}>Sign Up</span>
         </p>
     </form>
 );
 
-const SignupForm = ({toggleForm}) => (
+const SignupForm = () => (
     <form>
         <h2>Sign Up</h2>
         <label>User Name</label>
@@ -83,7 +77,7 @@ const SignupForm = ({toggleForm}) => (
         />
         <button type="submit">Sign Up</button>
         <p className="login-text">
-            Already have an account? <span onClick={toggleForm}>Login</span>
+            Already have an account? <span onClick={() => window.location.href = "/login"}>Login</span>
         </p>
     </form>
 );
