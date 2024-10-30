@@ -1,0 +1,37 @@
+.header-container {
+  background-color: green;  // Dark background for the header
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+  .header-nav {
+    width: 100%;
+    max-width: 1200px;
+
+    .header-menu {
+      list-style: none;
+      display: flex;
+      justify-content: flex-end;
+
+      li {
+        margin-left: 20px;
+
+        a {
+          text-decoration: none;
+          color: #ecf0f1;  // Light text color
+          font-weight: bold;
+          font-size: 16px;
+          padding: 8px 12px;
+          border-radius: 4px;
+          transition: background-color 0.3s ease;
+
+          &:hover {
+            background-color: #34495e;  // Change background on hover
+          }
+        }
+      }
+    }
+  }
+}

@@ -28,6 +28,8 @@ const LoginForm = () => {
     const [alertType, setAlertType] = useState(''); // 'success' or 'error'
     const [loading, setLoading] = useState(false);
 
+    const navigator = useNavigate();
+
     // Clear form after submission
     const clearForm = () => {
         setFormData({
@@ -54,7 +56,7 @@ const LoginForm = () => {
             const response = await loginUser(formData);
 
             // Store the token in localStorage
-            localStorage.setItem("token", response.token);
+            localStorage.setItem("token", response.data.token);
 
             // Display success message
             setAlertMessage(response.message || "Login successful!");
@@ -63,8 +65,7 @@ const LoginForm = () => {
             // Clear form after successful login
             clearForm();
 
-            // Redirect to another page, e.g., dashboard
-            window.location.href = "/dashboard";
+            navigator("/home")
         } catch (error) {
             // Display error message
             setAlertMessage(error.message || "Login failed.");
@@ -77,7 +78,6 @@ const LoginForm = () => {
 
     return (
         <>
-            {/* Alert Component */}
             <Alert
                 message={alertMessage}
                 type={alertType}
@@ -174,7 +174,6 @@ const SignupForm = () => {
 
     return (
         <>
-            {/* Alert Component */}
             <Alert
                 message={alertMessage}
                 type={alertType}
