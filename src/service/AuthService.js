@@ -14,7 +14,7 @@ const registerUser = async (user) => {
         });
         return response.data;
     } catch (error) {
-        console.log(error.response);  // Log the full error response
+        console.log(error.response);
         throw error.response?.data || "Registration failed";
     }
 };

@@ -1,11 +1,11 @@
 import React, {useEffect} from 'react';
-import './Alert.scss'; // Import styles for the alert
+import './Alert.scss';
 
 const Alert = ({ message, type, onClose }) => {
 
     useEffect(() => {
-        const timer = setTimeout(onClose, 3000); // 3 seconds
-        return () => clearTimeout(timer); // Cleanup the timer
+        const timer = setTimeout(onClose, 3000);
+        return () => clearTimeout(timer);
     }, [message, onClose]);
 
     if (!message) return null;
